@@ -1,0 +1,26 @@
+# Secrets — NEVER commit. Use .env.example as the template.
+.env
+.env.*
+!.env.example
+
+# Local settlement ledger (SQLite)
+*.db
+*.db-wal
+*.db-shm
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store

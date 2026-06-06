@@ -1,0 +1,62 @@
+[project]
+name = "x402-paid-api-starter"
+version = "0.1.0"
+description = "A clean, working FastAPI starter for charging AI agents (or people) per API call with x402 — dual-chain (Base + Solana), testnet→mainnet, receive-only, with discovery and a settlement ledger."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = ["x402", "fastapi", "agents", "payments", "usdc", "base", "solana", "api", "micropayments"]
+
+dependencies = [
+    "fastapi>=0.128.0",
+    "uvicorn[standard]>=0.40.0",
+    "httpx>=0.27.0",
+    "python-dotenv>=1.0.0",
+    # x402 protocol + EVM (Base) + SVM (Solana) server schemes.
+    # Pin the major: import paths below are verified against the 2.x line.
+    "x402[fastapi,evm,svm,extensions]>=2.2.0",
+    # CDP facilitator auth (Ed25519 JWT) — only needed for mainnet.
+    "pyjwt>=2.8.0",
+    "cryptography>=42.0.0",
+]
+
+[project.optional-dependencies]
+# Extras for the example client (scripts/pay_example.py). The server itself
+# is receive-only and never needs a private key or these signer libs.
+client = [
+    "requests>=2.31.0",
+    "eth-account>=0.11.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.6.0",
+    "mypy>=1.11.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# paywall.py is a long static HTML/CSS template string — line length N/A.
+"app/paywall.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+# The x402 SDK ships no type stubs; don't fail on its untyped imports.
+ignore_missing_imports = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+# Tests use pytest fixtures (monkeypatch, tmp_path) that aren't worth typing.
+exclude = "^tests/"
