@@ -35,6 +35,20 @@ This repo is a **ready-to-run vending machine** you can fill with your own data.
 
 ---
 
+## See it work
+
+The example client paying a route on **Base Sepolia testnet** — the request returns data *and* settles on-chain:
+
+![The example client output: HTTP 200, the returned JSON, a settlement transaction hash, and a block-explorer link.](assets/testnet_transaction_terminal.png)
+
+And the same payment confirmed on-chain — a 0.01 USDC transfer to the payee on Base Sepolia:
+
+![The settled transaction on BaseScan: status Success, a 0.01 USDC transfer on Base Sepolia testnet.](assets/sepolia_base_transaction.png)
+
+> The whole loop: `402 challenge → sign → verify → settle on-chain → return JSON`.
+
+---
+
 ## Quickstart (testnet, ~5 minutes)
 
 ```bash
