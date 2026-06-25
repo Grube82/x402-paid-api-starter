@@ -176,6 +176,8 @@ So buyers (and their agents) can find your endpoints:
 - **`/.well-known/x402`** — a plain JSON manifest of your price list. Set `PUBLIC_BASE_URL` to include absolute URLs.
 - **CDP Bazaar** — per-route metadata (description + example + JSON Schema, from `pricing.py`) is attached to each route so Coinbase's facilitator indexes you in the x402 Bazaar after your first successful mainnet settlement.
 
+That gets you into the Bazaar automatically. To get listed across the **rest** of the ecosystem — 402index.io, x402scan, x402-list, x402gle/Dexter, the awesome-x402 lists — see **[docs/DISCOVERY.md](docs/DISCOVERY.md)**, a directory-by-directory playbook (including the OpenDexter audition flow and the gotchas that fail you silently across every directory at once).
+
 ---
 
 ## Paying a route (the client side)
