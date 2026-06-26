@@ -104,7 +104,8 @@ Notes:
 
 ### 6. Curated lists & ecosystem pages (cheap backlinks)
 
-- **awesome-x402** and **awesome-agentic-commerce** — open a GitHub PR adding your API. Maintainer review takes days; PR auto-review bots occasionally catch real bugs for free.
+- **awesome-x402** — open a GitHub PR adding your API under **Production Implementations → Data & Social APIs** (or **API Examples**). Both sections list live paid endpoints, so a paid x402 API is in scope. Maintainer review takes days; PR auto-review bots occasionally catch real bugs for free.
+- **awesome-agentic-commerce** — curates *specs, SDKs, reference implementations, and example apps* — **not individual paid API endpoints**. A PR adding just your paid endpoint will be closed as out of scope (maintainers redirect you to x402scan / CDP Bazaar / directory projects — the surfaces above). Only worth a PR here if your endpoint ships as an open reference implementation.
 - **x402.org ecosystem** — a curated Google Form linked from the site footer.
 - **Skip directories tied to a settlement chain you don't use** (e.g. a Polygon-only directory if you settle Base/Solana).
 
